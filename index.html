@@ -4,39 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/script.js" defer></script>
 </head>
 <body>
     <!--Container principal-->
-    <dv class="container">
+    <div class="container">
+        <h1>Controle suas finacias por aqui:</h1>
         <!--Container onde mostra entrada,saida e total-->
         <div class="container-box">
              <!--Container onde mostra entrada-->
-            <div class="entrada">
-                <h2>Entrada: R$ 10</h2>
+            <div>
+                Entrada: R$
+                <span class="incomes">0.00</span>
             </div>
              <!--Container onde mostra saida-->
-            <div class="saida">
-                <h2>Saída: R$ 10</h2>
+             <div>
+                Saída: R$
+                <span class="expense">0.00</span>
             </div>
             <!--Container onde mostra total-->
-            <div class="total">
-                <h2>Total: R$ 10</h2>
+            <div>
+                Total: R$
+                <span class="total">0.00</span>
             </div>
         </div>
 
         <!--Container insere o item-->
-        <div class="container-inputs">
+        <div class="new-item">
                 <!--Input para a descrição do gasto-->
-                <label for="descricao">Descrição:</label>
-                <input type="text" id="descricao">
+                <div class="div-desc">
+                    <label for="descricao">Descrição:</label>
+                    <input type="text" id="descricao">
+                </div>
                 <!--Input para o valor do gasto-->
-                <label for="valor">Valor:</label>
-                <input type="number" id="valor">
-        </div>
-        <!--Container que vai descrever as finanças-->
-        <div class="container-desc">
+                <div class="divAmount">
+                    <label for="amount">Valor:</label>
+                    <input type="number" id="amount">
+                </div>
+                <!--Input para o tipo de gasto-->
+                <div class="div-typer">
+                    <label for="type">Qual o tipo de gasto:</label>
+                    <select name="type" id="type">
+                        <option value="yes">Saída</option>
+                        <option value="no">Entrada</option>
+                    </select>
+                </div>
+
+                <!--Botão de submit-->
+                <button id="btn-submit">
+                    Incluir
+                </button>
 
         </div>
-    </dv>
+
+        <!--Container que vai descrever as finanças-->
+        <div class="div-table">
+            <table>
+                <thead>
+                    <tr>
+                    <th>Descrição</th>
+                        <th class="columnAmount">Valor</th>
+                        <th class="columnType">Tipo</th>
+                        <th class="columnAction"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
 </html>
