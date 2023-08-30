@@ -68,13 +68,12 @@ h1{
     flex-direction: column;
 }
 
-input{
+input, select{
     border-radius: 2rem;
+    padding: 0.5rem;
 }
 
-select {
-    border-radius: 2rem;
-}
+
 
 .new-item>button{
     background-color: #2c73d2;
@@ -85,4 +84,10 @@ select {
     cursor: pointer;
     height: 5vh;
     
+}
+
+
+.div-table{
+    width: 100%;
+    display: flex;
 }
