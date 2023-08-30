@@ -13,7 +13,17 @@ const total = document.querySelector(".total");
 //Variavel para armazenar os itens
 let items;
 
-
+function insertItem(item,index){
+    let tr = document.createElement("tr");
+    tr.innerHTML = `
+    <td>${item.descItem}</td>
+    <td>R$ ${item.amount}</td>
+    <td class="columnType">${
+        item.type === "Entrada"
+        ? '<i class="bx-chevron-up-circle"></i>'
+    }
+    `
+}
 
 
 
