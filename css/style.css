@@ -104,5 +104,20 @@ table{
 }
 
 th{
-    
+    text-align: start;
+    border-bottom: inset;
+    padding-bottom: 0.2rem;
+}
+
+i{
+    font-size: 25px;
+
+}
+
+.bxs-chevron-up-circle {
+    color: #00c9a7;
+}
+
+.bxs-chevron-down-circle{
+    color: #d83121;
 }
