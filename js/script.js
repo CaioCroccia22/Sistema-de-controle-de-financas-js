@@ -64,6 +64,12 @@ function loadItens(){
 }
 
 
+function getTotals() {
+    const amountIncomes = items
+    .filter((item) => item.type === "Entrada")
+    .map((transaction) => Number(transaction.amount));
+}
+
 
 
 
