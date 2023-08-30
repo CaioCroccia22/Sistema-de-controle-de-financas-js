@@ -1,6 +1,6 @@
 
 const tbody = document.querySelector("tbody");
-const descItem = document.querySelector("#desc");
+const descItem = document.querySelector("#descricao");
 const amount = document.querySelector("#amount");
 const type = document.querySelector("#type");
 const btnNew = document.querySelector("btnNew");
@@ -13,6 +13,20 @@ const total = document.querySelector(".total");
 //Variavel para armazenar os itens
 let items;
 
+//|Função para deletar o item (lixeira)
+
+function deleteItem(inder) {
+    //delete o item de index 1
+    items.splice(index, 1);
+    //Atualiza o banco
+    setItensBD();
+    //recarregar a informação 
+    loadItens();
+}
+
+
+
+//Função para inserir o item no HTML
 function insertItem(item,index){
     let tr = document.createElement("tr");
     tr.innerHTML = `
@@ -45,7 +59,12 @@ function loadItens(){
     items.forEach((item, index) => {
         insertItem(item,index);
     });
+
+    getTotals();
 }
+
+
+
 
 
 
