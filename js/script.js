@@ -21,8 +21,14 @@ function insertItem(item,index){
     <td class="columnType">${
         item.type === "Entrada"
         ? '<i class="bx-chevron-up-circle"></i>'
-    }
-    `
+        : '<i class="bx-chevron-down-circle"></i>'
+    }</td>
+    <td>
+        <button onclick="deleteItem(${index})"><i class='btn bx-trash'></i></button>
+    </td>
+    `;
+
+    tbody.appendChild(tr);
 }
 
 
