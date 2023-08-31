@@ -3,19 +3,43 @@ const tbody = document.querySelector("tbody");
 const descItem = document.querySelector("#descricao");
 const amount = document.querySelector("#amount");
 const type = document.querySelector("#type");
-const btnNew = document.querySelector("btnNew");
+const btnNew = document.querySelector("#btn-submit");
 
 const incomes = document.querySelector(".incomes");
-const expenses = document.querySelector(".expenses");
+const expenses = document.querySelector(".expense");
 const total = document.querySelector(".total");
 
 
 //Variavel para armazenar os itens
 let items;
 
+btnNew.onclick = () => {
+    if (descItem.value === "" || amount.value === "" || type.value === "") {
+        return alert("Preencha todos os campos!!");
+    }
+
+    items.push({
+        desc: descItem.value,
+        amount: Math.abs(amount.value).toFixed(2),
+        type: type.value,
+      });
+    
+
+    setItensBD();
+
+    loadItens();
+
+    descItem.value = "";
+    amount.value = "";
+
+};
+
+
+
+
 //|Função para deletar o item (lixeira)
 
-function deleteItem(inder) {
+function deleteItem(index) {
     //delete o item de index 1
     items.splice(index, 1);
     //Atualiza o banco
@@ -27,20 +51,14 @@ function deleteItem(inder) {
 
 
 //Função para inserir o item no HTML
-function insertItem(item,index){
+function insertItem(item, index){
     let tr = document.createElement("tr");
-    tr.innerHTML = `
-    <td>${item.descItem}</td>
+
+   
+  tr.innerHTML = `
+    <td>${item.desc}</td>
     <td>R$ ${item.amount}</td>
-    <td class="columnType">${
-        item.type === "Entrada"
-        ? '<i class="bx-chevron-up-circle"></i>'
-        : '<i class="bx-chevron-down-circle"></i>'
-    }</td>
-    <td>
-        <button onclick="deleteItem(${index})"><i class='btn bx-trash'></i></button>
-    </td>
-    `;
+  `;
 
     tbody.appendChild(tr);
 }
@@ -49,48 +67,41 @@ function insertItem(item,index){
 
 
 
-
-
-//Dentro da função irá carregar na variavel items as informação que tem no banco
-function loadItens(){
+function loadItens() {
     items = getItensBD();
-    //Limpar o tbody para não duplicar itens na tela
     tbody.innerHTML = "";
     items.forEach((item, index) => {
-        insertItem(item,index);
+      insertItem(item, index);
     });
-
+  
     getTotals();
-}
+  }
+  
 
 
 function getTotals() {
     const amountIncomes = items
-    .filter((item) => item.type === "Entrada")
-    .map((transaction) => Number(transaction.amount));
-
+      .filter((item) => item.type === "Entrada")
+      .map((transaction) => Number(transaction.amount));
+  
     const amountExpenses = items
-    .filter((item) => item.type === "Saída")
-    .map((transaction) => Number(transaction.amount));
-
-
-
+      .filter((item) => item.type === "Saída")
+      .map((transaction) => Number(transaction.amount));
+  
     const totalIncomes = amountIncomes
-        .reduce((acc, cur) => acc + cur, 0)
-        .toFixed(2);
-
+      .reduce((acc, cur) => acc + cur, 0)
+      .toFixed(2);
+  
     const totalExpenses = Math.abs(
-        amountExpenses.reduce((acc, cur) => acc + cur, 0)
+      amountExpenses.reduce((acc, cur) => acc + cur, 0)
     ).toFixed(2);
-
+  
     const totalItems = (totalIncomes - totalExpenses).toFixed(2);
-
+  
     incomes.innerHTML = totalIncomes;
     expenses.innerHTML = totalExpenses;
     total.innerHTML = totalItems;
-    
-}
-
+  }
 
 
 
@@ -121,3 +132,7 @@ const setItensBD = () =>
 
 //Função loadItens vai ser inicializada assim que carregar o documento
 loadItens();
+
+
+///Teste
+const deleteBtn = document.createElement("button")
