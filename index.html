@@ -26,9 +26,33 @@
         </div>
         <div class="newItem">
             <div class="divDesc">
-                <label for="desc">Descrição</label>
+                <label for="desc">Descrição:</label>
                 <input type="text" id="desc" />
             </div>
+            <div class="divAmount">
+                <label for="amout">Valor:</label>
+                <input type="text" id="amount">
+            </div>
+            <div class="divType">
+                <label for="type">Tipo:</label>
+                <select id="type">
+                    <option>Entrada</option>
+                    <option>Saida</option>
+                </select>
+            </div>
+        <button id="btnNew">Incluir</button>
+        <div class="divTable">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Descrição:</th>
+                        <th class="columnAmount">Valor:</th>
+                        <th class="columntype">Tipo:</th>
+                        <th class="columnAction"></th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
         </div>
     </main>
 </body>
