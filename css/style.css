@@ -1,0 +1,18 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+    outline: none;
+    /*
+    Quando você define outline: none;, 
+    está essencialmente removendo o contorno ao 
+    redor do elemento. 
+    Isso é frequentemente usado para remover 
+    a aparência padrão de um contorno que ocorre 
+    quando um elemento 
+    está focado 
+    (por exemplo, quando um link é clicado).
+    */
+}
+
