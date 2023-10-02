@@ -19,6 +19,29 @@ function loadItens() {
     });
 }
 
+function deleteItem(index){
+    items.splice(index, 1);
+    setItensBD();
+    loadItens();
+}
+
+function insertItem(item, index){
+    tr.innerHTML = `
+    <td>${item.desc}</td>
+    <td>R$ ${item.amount}</td>
+    <td class="columnType">${
+      item.type === "Entrada"
+        ? '<i class="bx bxs-chevron-up-circle"></i>'
+        : '<i class="bx bxs-chevron-down-circle"></i>'
+    }</td>
+    <td class="columnAction">
+      <button onclick="deleteItem(${index})"><i class='bx bx-trash'></i></button>
+    </td>
+  `;
+
+  tbody.appendChild(tr);
+}
+
 const getItensBD = () => JSON.parse(localStorage.getItem("db_items")) ?? []
 
 const setItensBD = () => localStorage.setItem("db_items", JSON.stringify(items));
