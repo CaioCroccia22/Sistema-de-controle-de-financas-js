@@ -22,9 +22,23 @@ function loadItens() {
 }
 
 function getTotals(){
-    const amoutIncomes = items
+    const amountIncomes = items
     .filter((item) => item.type === "Entrada")
     .map((transaction) => Number(transaction.amount));
+
+    const amountExpenses = items
+    .filter((item) => item.type === "Saída")
+    .map((transaction) => Number(transaction.amount));
+
+    const totalIncomes = amountIncomes
+    .reduce((acc, cur) => acc + cur, 0)
+    .toFixed(2);
+
+    const  totalExpenses = Math.abs(
+        amountExpenses.reduce((acc, cur) => acc + cur, 0)
+    ).toFixed(2)
+
+const totalItems = (totalIncomes - totalExpenses).toFixed(2);
 }
 
 function deleteItem(index){
