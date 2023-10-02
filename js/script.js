@@ -11,6 +11,12 @@ const total = document.querySelector(".total");
 
 let items;
 
+btnNew.onclick() = () => {
+    if (descItem.value === "" || amount.value === "" || type.value === "") {
+        return alert ("Preencha todos os campos!");
+    }
+}
+
 function loadItens() {
     items = getItensBD();
     tbody.innerHTML = "";
@@ -39,6 +45,10 @@ function getTotals(){
     ).toFixed(2)
 
 const totalItems = (totalIncomes - totalExpenses).toFixed(2);
+
+incomes.innerHTML = totalIncomes;
+expenses.innerHTML = totalExpenses;
+total.innerHTML = totalItems;
 }
 
 function deleteItem(index){
