@@ -73,6 +73,10 @@ function deleteItem(index){
 }
 
 function insertItem(item, index){
+    //Criando uma nova linha (tr)
+    tr = document.createElement(tr);
+
+    //Definindo o conteundo da linha
     tr.innerHTML = `
     <td>${item.desc}</td>
     <td>R$ ${item.amount}</td>
