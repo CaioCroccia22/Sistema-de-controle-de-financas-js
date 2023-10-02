@@ -17,6 +17,14 @@ function loadItens() {
     items.forEach((item, index) => {
         insertItem(item, index);
     });
+
+    getTotals();
+}
+
+function getTotals(){
+    const amoutIncomes = items
+    .filter((item) => item.type === "Entrada")
+    .map((transaction) => Number(transaction.amount));
 }
 
 function deleteItem(index){
