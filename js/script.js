@@ -72,9 +72,11 @@ function deleteItem(index){
     loadItens();
 }
 
+
+
 function insertItem(item, index){
     //Criando uma nova linha (tr)
-    tr = document.createElement(tr);
+    let tr = document.createElement("tr");
 
     //Definindo o conteundo da linha
     tr.innerHTML = `
