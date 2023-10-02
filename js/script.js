@@ -13,7 +13,10 @@ let items;
 
 function loadItens() {
     items = getItensBD();
-    tbody
+    tbody.innerHTML = "";
+    items.forEach((item, index) => {
+        insertItem(item, index);
+    });
 }
 
 const getItensBD = () => JSON.parse(localStorage.getItem("db_items")) ?? []
