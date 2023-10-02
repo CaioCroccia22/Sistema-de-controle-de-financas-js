@@ -15,7 +15,22 @@ btnNew.onclick() = () => {
     if (descItem.value === "" || amount.value === "" || type.value === "") {
         return alert ("Preencha todos os campos!");
     }
-}
+
+    items.push ({
+        desc: descItem.value,
+        amount: Math.abs(amount.value).toFixed(2),
+        type: type.value,
+    });
+
+    setItensBD();
+
+    loadItens();
+
+    descItem.value = "";
+    amount.value = "";
+};
+
+
 
 function loadItens() {
     items = getItensBD();
